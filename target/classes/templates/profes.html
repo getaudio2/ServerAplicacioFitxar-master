@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8">
+	<title>HORARIOS</title>
+	
+	<style>
+		th:nth-child(odd), th:nth-child(even) {
+		  	background-color: rgba(150, 212, 212, 0.4);
+		}
+		td:nth-child(1) {
+		  	background-color: rgba(150, 212, 212, 0.4);
+		}
+		
+		.select{
+			background-color: #C0C0C0;
+			border-radius: 8px;
+			border: none;
+		}
+		.leftBtn{
+			background-color: rgba(150, 212, 212, 0.4);
+			border-radius: 8px;
+			height: 30px;
+			width: 60px;
+			border: none;
+			float: left;
+			margin: 3px;
+		}
+		.rightBtn{
+			background-color: rgba(150, 212, 212, 0.4);
+			border-radius: 8px;
+			height: 30px;
+			width: 60px;
+			border: none;
+			float: left;
+			margin: 3px;
+		}
+		.btn-alertas {
+		    background-color: red;
+		    color: black;
+		    font-weight: bold;
+		    border: none;
+		    padding: 10px 20px;
+		    border-radius: 8px;
+		    transition: background-color 0.3s;
+		    float: right;
+		}
+		  
+		.btn-alertas:hover {
+		    background-color: darkred;
+		}
+		img {
+		    width: 90px;
+		    height: 75px;
+		    float: right;
+		}
+		
+	</style>
+	
+</head>
+<body>
+
+<H1><u>Horario de <span th:text="${prof}"></span></u><img src="https://agora.xtec.cat/insjoandaustria/wp-content/uploads/usu216/2022/03/JoanDAustria_Imagoptipo-e1646755852447.png" alt="Header Image"></H1>
+
+	<form action="/profes" method="post" id="profesForm">
+		PROFE:
+		<select name="prof" id="prof">
+			<option><span th:if="${prof != null}" th:text="${prof}"></span></option>
+			<option value="Eduard Lara">Eduard Lara</option>
+			<option value="Marta Millan">Marta Millan</option>
+			<option value="Javier Quesada">Javier Quesada</option>
+			<option value="Albert Gasset">Albert Gasset</option>
+			<option value="Juan Aguilera">Juan Aguilera</option>
+			<option value="Jordi Bolet">Jordi Bolet</option>
+			<option value="Estanislao Casanova">Estanislao Casanova</option>
+			<option value="Jose Luis Castillo">Jose Luis Castillo</option>
+		</select>
+		<input type=submit name=submit value="SeleccionarProfe" class="select">
+		</br>
+		<div class="btn-group">
+			<input type=submit name=pastWeek style="font-size: 22px;" value="&#x2190;" class="leftBtn">
+			<input type=submit name=nextWeek style="font-size: 22px;" value="&#x2192;" class="rightBtn">
+		</div>
+	</form>
+	<form action="/profesAusentesHoy">
+        <input type="submit" value="Alertas de hoy" class="btn-alertas">
+    </form>
+	
+	
+	<table border=1 style="width:100%;font-size: 18px;">
+	    <thead>
+	    	<tr style="font-size:25px;"><th colspan="6" th:if="${mesAnyo != null}" th:text="${mesAnyo}"></th></tr>
+	        <tr><th> Franja 
+	        	<th> Lunes   <span th:if="${not #lists.isEmpty(dias)}" th:text="${dias[0]}"></span>
+	        	<th> Martes   <span th:if="${not #lists.isEmpty(dias)}" th:text="${dias[1]}"></span>
+	        	<th> Mi&eacute;rcoles  <span th:if="${not #lists.isEmpty(dias)}" th:text="${dias[2]}"></span>
+	        	<th> Jueves    <span th:if="${not #lists.isEmpty(dias)}" th:text="${dias[3]}"></span>
+	        	<th> Viernes <span th:if="${not #lists.isEmpty(dias)}" th:text="${dias[4]}"></span>
+	        </tr>
+
+	    </thead>
+	    <tbody>
+	        <tr th:if="${not #lists.isEmpty(grupos)}" th:each="grupo : ${grupos}">
+	        	<td><font size="5"><span th:text="${grupo[0]}"></span></font></td>
+	            <td th:style="${grupo[1].contains('/Y')} ? 'background-color: #7CFF4F' : (${grupo[1].contains('/')} ? 'background-color: #FF4F4F')"><span th:text="${grupo[1]}"></span></td>
+	            <td th:style="${grupo[2].contains('/Y')} ? 'background-color: #7CFF4F' : (${grupo[2].contains('/')} ? 'background-color: #FF4F4F')"><span th:text="${grupo[2]}"></span></td>
+	            <td th:style="${grupo[3].contains('/Y')} ? 'background-color: #7CFF4F' : (${grupo[3].contains('/')} ? 'background-color: #FF4F4F')"><span th:text="${grupo[3]}"></span></td>
+	            <td th:style="${grupo[4].contains('/Y')} ? 'background-color: #7CFF4F' : (${grupo[4].contains('/')} ? 'background-color: #FF4F4F')"><span th:text="${grupo[4]}"></span></td>
+	            <td th:style="${grupo[5].contains('/Y')} ? 'background-color: #7CFF4F' : (${grupo[5].contains('/')} ? 'background-color: #FF4F4F')"><span th:text="${grupo[5]}"></span></td>
+	        </tr>
+	    </tbody>
+	</table>  	
+</body>
+</html>
+

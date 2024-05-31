@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>LISTADO DE LIBROS</title>
+</head>
+<body>
+
+<H1>LISTADO DE PRESENCIAS</H1>
+
+	<form action="/filtrar" method="post">
+		NOM: <input type=text name=nom>
+		FECHA: <input type=text name=fecha> 
+		<input type=submit name=submit value="Filtrar">  
+	</form>
+
+	<table border=1>
+	    <thead>
+	        <tr><th> Id <th> Nom <th> Latitud <th> Longitud <th> Distancia <th> Fecha <th> Comentario <th> Borrado 
+	        </tr>
+	        <br>
+	    </thead>
+	    <tbody>
+		<tr th:if="${presencias.empty}">
+	            <td colspan="2"> No Books Available </td>
+	        </tr>
+	        <tr th:each="presencia : ${presencias}">
+	            <td><span th:text="${presencia.id}"></span></td>
+	            <td><span th:text="${presencia.nom}"></span></td>
+	            <td><span th:text="${presencia.latitud}"></span></td>
+	            <td><span th:text="${presencia.longitud}"></span></td>
+	            <td><span th:text="${presencia.distancia}"></span></td>
+	            <td><span th:text="${presencia.fecha}"></span></td>
+   	            <td><span th:text="${presencia.comentario}"></span></td>
+	            <td><a th:href="@{/borrado/}+${presencia.id}">Borrado</a></td>
+	        </tr>
+	    </tbody>
+	</table>   			
+</body>
+</html>
+

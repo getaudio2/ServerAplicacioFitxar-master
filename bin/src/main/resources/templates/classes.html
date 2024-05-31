@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>HORARIOS CLASSES</title>
+</head>
+<body>
+
+<H1>HORARIOS CLASSES </H1>
+
+	<form action="/classes" method="post">
+		CLASSE:
+		<select name="grupo" id="grupo">
+		   <option value="DAM2">DAM2</option>
+  		   <option value="DAW2">DAW2</option>
+           <option value="ASIX2">ASIX2</option>
+           <option value="ASIX">ASIX</option>
+           <option value="DAW">DAW</option>
+           <option value="DAM">DAM</option>
+		</select>
+		<input type=submit name=submit value="SeleccionarClasses">  
+	</form>
+	
+	<table border=1>
+	    <thead>
+	        <tr><th> Dilluns <th> Dimarts <th> Dimecres <th> Dijous <th> Divendres 
+	        </tr>
+	        <br>
+	    </thead>
+	    <tbody>
+	        <tr th:each="modulo : ${modulos}">
+	            <td><span th:text="${modulo}"></span></td>
+	            <td><span th:text="${modulo}"></span></td>
+	            <td><span th:text="${modulo}"></span></td>
+	            <td><span th:text="${modulo}"></span></td>
+	            <td><span th:text="${modulo}"></span></td>
+	        </tr>
+	    </tbody>
+	</table>   			
+	
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profesores Ausentes Hoy</title>
+    <style>
+    	table {
+		  	border-collapse: collapse;
+		  	width: 100%;
+		  	margin-bottom: 20px;
+		}
+		
+		th, td {
+		  	text-align: left;
+		  	padding: 8px;
+		}
+		
+		th {
+		  	background-color: #ddd;
+		}
+		
+		tr:nth-child(even) {
+		  	background-color: #f2f2f2;
+		}
+		img {
+		    width: 90px;
+		    height: 75px;
+		    float: right;
+		}
+    </style>
+</head>
+<body>
+    <h1>Profesores Ausentes Hoy<img src="https://agora.xtec.cat/insjoandaustria/wp-content/uploads/usu216/2022/03/JoanDAustria_Imagoptipo-e1646755852447.png" alt="Header Image"></h1>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Nombre</th>
+	      <th>Modulo</th>
+	      <th>Hora</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr th:each="profesor : ${profesAusentes}">
+	      <td th:text="${profesor[0]}"></td>
+	      <td th:text="${profesor[1]}"></td>
+	      <td th:text="${profesor[2]}"></td>
+	    </tr>
+	  </tbody>
+	</table>
+</body>
+</html>

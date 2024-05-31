@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title> FORMULARIO ACCESO</title>
+</head>
+<body>
+<H1>FORMULARIO DE ACCESO</H1>
+	<form action="/" method="post">
+		Login: <input type=text name=nom><br><br>
+		Password: <input type="password" name=password><br><br>
+		<input type=submit name=submit value="Login">
+	</form>
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>BIENVENIDO A ESTA PAGINA WEB</title>
+</head>
+<body>
+<H1>GRACIAS POR CONTACTAR CON NOSOTROS</H1>
+<H2>EN BREVE NOS PONDREMOS EN CONTACTO CON USTED</H2>
+<h3>Usuario: <span th:text="${usuario.nombre}"> </span></h3>
+<h3>Password: <span th:text="${usuario.password}"> </span></h3>
+
+<table border=1>
+    <thead>
+        <tr><th> Id <th> Titulo <th> Autor
+        </tr>
+    </thead>
+    <tbody>
+	<tr th:if="${libros.empty}">
+            <td colspan="2"> No Books Available </td>
+        </tr>
+        <tr th:each="libro : ${libros}">
+            <td><span th:text="${libro.id}"> Title </span></td>
+            <td><span th:text="${libro.titulo}"> Title </span></td>
+            <td><span th:text="${libro.autor}"> Author </span></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+
+-->

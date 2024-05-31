@@ -1,0 +1,41 @@
+
+p {
+    margin: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center;
+    height: 40px;
+    width: 18%;
+}
+
+th {
+    background-color: lightgray;
+}
+
+th:first-child, td:first-child {
+    width: 8%;
+}
+
+.hora {
+    font-size: 10px;
+}
+
+img {
+    width: 90px;
+    height: 85px;
+    float: right;
+}
+
+.profesor {
+    font-size: smaller; 
+    text-align: right;
+}
+		

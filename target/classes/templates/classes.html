@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>HORARIOS CLASSES</title>
+</head>
+<style>
+	.FicharOK {
+    background-color: #FF0000;
+	}
+
+	.FicharNO {
+    background-color: #00FF00;
+	}
+
+</style>
+<body>
+
+<H1>HORARIOS CLASSES </H1>
+
+	<form action="/classes" method="post">
+		CLASSE:
+		<select name="grupo" id="grupo">
+		   <option value="DAM2">DAM2</option>
+  		   <option value="DAW2">DAW2</option>
+           <option value="ASIX2">ASIX2</option>
+           <option value="ASIX">ASIX</option>
+           <option value="DAW">DAW</option>
+           <option value="DAM">DAM</option>
+		</select>
+		<input type=submit name=submit value="SeleccionarClasses">  
+	</form>
+	
+	<table border=1 style="width:100%">
+	    <thead>
+	        <tr><th> Franja <th> Dilluns <th> Dimarts <th> Dimecres <th> Dijous <th> Divendres 
+	        </tr>
+	        <br>
+	    </thead>
+	    <tbody>
+	        <tr th:each="modulo : ${modulos}">
+	            <td th:text="${modulo[0]}"><font size="5"/></td>
+	            <td th:text="${modulo[1]}"></td>
+	            <td th:text="${modulo[2]}"></td>
+	            <td th:text="${modulo[3]}"></td>
+	            <td th:text="${modulo[4]}"></td>
+	            <td th:text="${modulo[5]}"></td>
+	        </tr>
+	    </tbody>
+	</table>   			
+	
+</body>
+</html>
+
